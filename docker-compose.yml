@@ -5,7 +5,7 @@ services:
       context: ./nodejs/
       dockerfile: Dockerfile
     volumes:
-      - ./app/sources:${DOCKER_APP_DIR}/${NEXTJS_APP_NAME} # アプリケーションの相対パスを.env指定
+      - ./app/${NEXTJS_APP_NAME}:${DOCKER_APP_DIR}/${NEXTJS_APP_NAME} # アプリケーションの相対パスを.env指定
     command: sh -c "cd ${NEXTJS_APP_NAME} && ls -a && npm run dev" # .envにプロジェクト名を定義
     ports:
       - "3000:3000"
